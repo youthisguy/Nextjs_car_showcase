@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from 'next/Image';
 import CustomButton from './CustomButton';
 
@@ -10,11 +11,18 @@ const Hero = () => {
 
 
   return (
+
+
     <div className='hero'>
       <div className='flex-1 pt-36 padding-x'>
-        <h1 className='hero__title'>
+        <motion.h1 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  className='hero__title'
+                  >
           Find, book, or rent a car - quickly and easily!
-        </h1>
+        </motion.h1>
         <p className='hero__subtitle'>
           Streamline your car rental experience with our effortless booking process.
         </p>
@@ -25,10 +33,13 @@ const Hero = () => {
               handleClick={handleScroll}
               />
         <div className='hero__image-container'>
-          <div className='hero__image'>
+          <motion.div  className='hero__image'
+                    >
             <Image src="/hero.png" alt="hero" fill className="object-contain" />
-          </div>
+          </motion.div>
 
+          <div className='hero__image-overlay' />
+        
         </div>
       </div>
     </div>
