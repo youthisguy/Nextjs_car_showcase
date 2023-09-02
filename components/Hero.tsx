@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from 'next/Image';
 import CustomButton from './CustomButton';
+import { fadeIn, staggerContainer, textVariant } from '../utils/motion';
 
 const Hero = () => {
     const handleScroll = () => {
@@ -14,18 +15,24 @@ const Hero = () => {
 
 
     <div className='hero'>
-      <div className='flex-1 pt-36 padding-x'>
+        <motion.div     
+                variants={staggerContainer}
+                initial='hidden'
+                whileInView='show'
+                viewport={{ once: false, amount: 0.25 }}
+                className='flex-1 pt-36 padding-x'>
         <motion.h1 
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
+                 variants={textVariant(1.1)}
                   className='hero__title'
                   >
           Find, book, or rent a car - quickly and easily!
         </motion.h1>
-        <p className='hero__subtitle'>
+        <motion.p
+          variants={textVariant(1.2)}
+          className = 'hero__subtitle'>
+
           Streamline your car rental experience with our effortless booking process.
-        </p>
+        </motion.p>
 
         <CustomButton 
               title="Explore Cars"
@@ -33,15 +40,15 @@ const Hero = () => {
               handleClick={handleScroll}
               />
         <div className='hero__image-container'>
-          <motion.div  className='hero__image'
+          <div className='hero__image'
                     >
             <Image src="/hero.png" alt="hero" fill className="object-contain" />
-          </motion.div>
+          </div>
 
           <div className='hero__image-overlay' />
         
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }
