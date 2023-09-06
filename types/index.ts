@@ -10,3 +10,8 @@ export interface CustomButtonProps {
 export interface TypingTextProps {
     title: string;
 }
+
+export interface SearchManufacturerProps {
+    manufacturer: string;
+    setManufacturer: (manufacturer: string) => void;
+}

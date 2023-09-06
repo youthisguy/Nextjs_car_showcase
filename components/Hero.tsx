@@ -20,7 +20,7 @@ const Hero = () => {
         viewport={{ once: false, amount: 0.25 }}
       >
         <motion.h1 variants={textVariant(1.1)} className='hero__title'>
-          Find, book, or rent a car - quickly and easily!
+        Reserve, or lease a vehicle - swiftly and conveniently!
         </motion.h1>
         <motion.p variants={textVariant(1.2)} className='hero__subtitle'>
           Streamline your car rental experience with our effortless booking process.
