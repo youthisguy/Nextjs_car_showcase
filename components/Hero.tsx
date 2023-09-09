@@ -13,7 +13,7 @@ const Hero = () => {
   return (
     <div className='hero'>
       <motion.div
-        className='flex-1 pt-20 sm:pt-30 md:pt-20 padding-x'
+        className='flex-1 pt-30 sm:pt-40 padding-x'
         variants={staggerContainer}
         initial='hidden'
         whileInView='show'
