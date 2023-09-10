@@ -13,7 +13,7 @@ const Hero = () => {
   return (
     <div className='hero'>
       <motion.div
-        className='flex-1 pt-30 sm:pt-40 padding-x'
+        className='flex-1 pt-36 padding-x'
         variants={staggerContainer}
         initial='hidden'
         whileInView='show'
@@ -38,9 +38,9 @@ const Hero = () => {
           className='hero__image'
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ type: 'spring', duration: 2 }}
+          transition={{ type: 'spring', duration: 1.5 }}
         >
-          <Image src='/hero.png' alt='hero' fill className='object-contain' />
+          <Image src='/audi-hero.png' alt='hero' fill className='object-contain' />
         </motion.div>
 
         <div className='hero__image-overlay' />
