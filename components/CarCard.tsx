@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Image from '@/node_modules/next/image';
 import CustomButton from './CustomButton';
 import CarDetails from './CarDetails';
-import { calculateCarRent } from '@/utils/index';
+import { calculateCarRent, generateCarImageUrl } from '@/utils/index';
 import { motion } from 'framer-motion';
 import { CarProps } from '@/types/index';
 
@@ -35,7 +35,7 @@ const CarCard = ({ car }: CarCardProps) => {
       </p>
 
       <div className='relative w-full h-40 my-3 object-contain'>
-        <Image src='/hero.png' alt={make} fill priority className='object-contain' />
+        <Image src={generateCarImageUrl(car)} alt={make} fill priority className='object-contain' />
       </div>
 
       <div className='relative flex w-full mt-2'>
