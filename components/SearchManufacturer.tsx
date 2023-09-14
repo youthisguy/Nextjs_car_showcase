@@ -7,7 +7,7 @@ import { SearchManufacturerProps } from '@/types/index';
 import React, { Fragment } from 'react';
 import { manufacturers } from '@/constants/index';
 
-const SearchManufacturer = ({ manufacturer, setManufacturer }: SearchManufacturerProps) => {
+const SearchManufacturer = ({ selected, setSelected }: SearchManufacturerProps) => {
   const [query, setQuery] = useState('');
 
   const filteredManufacturer =
@@ -19,7 +19,7 @@ const SearchManufacturer = ({ manufacturer, setManufacturer }: SearchManufacture
 
   return (
     <div className="search-manufacturer">
-      <Combobox value={manufacturer} onChange={setManufacturer}>
+      <Combobox value={selected} onChange={setSelected}>
         <div className="relative w-full">
           <Combobox.Button className="absolute top-[14px]">
             <Image src="/car-logo.svg" width={20} height={20} className="ml-4" alt="Car Logo" />

@@ -7,7 +7,11 @@ import { staggerContainer, textVariant } from '../utils/motion';
 
 const Hero = () => {
   const handleScroll = () => {
-    // Handle scroll logic here
+    const nextSection = document.getElementById("discover");
+
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
