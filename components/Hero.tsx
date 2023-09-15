@@ -18,7 +18,6 @@ const Hero = () => {
     <div className='hero'>
       <motion.div
         className='flex-1 pt-36 padding-x'
-        variants={staggerContainer}
         initial='hidden'
         whileInView='show'
         viewport={{ once: false, amount: 0.25 }}

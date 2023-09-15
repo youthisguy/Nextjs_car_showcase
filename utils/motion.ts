@@ -130,3 +130,27 @@ export const textVariant2 = {
       },
     },
   };
+
+  export const container = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.2,
+        staggerChildren: 0.4,
+        duration: 0.3,
+        type: "spring",
+      },
+    },
+  };
+
+  export const itemdisplay = {
+    hidden: { y: 60, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      duration: 2,
+      type: "spring",
+    },
+  };
