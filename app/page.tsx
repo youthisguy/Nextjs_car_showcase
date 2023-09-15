@@ -10,7 +10,7 @@ import { container, itemdisplay } from '@utils/motion';
 
 export default function Home() {
   const [allCars, setAllCars] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [manufacturer, setManufacturer] = useState("");
   const [model, setModel] = useState("");
   const [fuel, setFuel] = useState("");
@@ -18,6 +18,7 @@ export default function Home() {
   const [limit, setLimit] = useState(10);
 
   const getCars = async () => {
+    setLoading(true);
     try {
       const result = await fetchCars({
         manufacturer: manufacturer || "",
@@ -37,8 +38,6 @@ export default function Home() {
   useEffect(() => {
     getCars();
   }, [fuel, year, limit, manufacturer, model]);
-
-  const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
   return (
     <main className="overflow-hidden">
@@ -74,17 +73,7 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {loading && (
-          <div className='mt-16 w-full flex-center'>
-            <Image
-              src="/loader"
-              width={50}
-              height={50}
-              alt="loader"
-              className='object-contain'
-            />
-          </div>
-        )}
+      
 
         {allCars.length > 0 ? (
           <section>
@@ -101,17 +90,31 @@ export default function Home() {
               ))}
             </motion.div>
 
+            {loading && (
+          <div className='mt-16 w-full flex-center'>
+            <Image
+              src="./loader.svg"
+              width={50}
+              height={50}
+              alt="loader"
+              className='object-contain'
+            />
+          </div>
+        )}
+
             <ShowMore
               pageNumber={limit / 10}
-              isNext={(limit > allCars.length)}
+              isNext={limit > allCars.length}
               setLimit={setLimit}
             />
           </section>
         ) : (
+          !loading && (
           <div className='home__error-container'>
             <h2 className='text-black text-xl font-bold'>Oops, no results</h2>
             <p>{allCars?.message}</p>
           </div>
+          )
         )}
       </div>
     </main>
